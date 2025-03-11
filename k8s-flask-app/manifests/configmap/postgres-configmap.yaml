@@ -3,4 +3,6 @@ kind: ConfigMap
 metadata:
   name: postgres-config
 data:
-  database-url: "postgresql://user:password@postgres:5432/mydatabase" 
+  database-url: "postgresql://user:password@postgres:5432/mydatabase"
+  POSTGRES_USER: "user"
+  POSTGRES_PASSWORD: "password" 

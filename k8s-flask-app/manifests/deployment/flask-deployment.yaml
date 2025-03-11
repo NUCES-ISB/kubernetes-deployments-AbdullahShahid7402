@@ -14,7 +14,25 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: flask-app:latest
+        image: abdullahshahidbutt/flaskapp_mlops06:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-config
+              key: database-url
+        imagePullSecrets:
+        - name: myregistrykey
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask-app
+        image: abdullahshahidbutt/flaskapp_mlops06:latest
         ports:
         - containerPort: 5000
         env:
